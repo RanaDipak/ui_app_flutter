@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import '../common/string_common.dart';
 
 class SignUp extends StatefulWidget {
-  const SignUp( {Key? key}) : super(key: key);
+  const SignUp({Key? key}) : super(key: key);
 
   @override
   State<SignUp> createState() => _SignUpState();
@@ -69,7 +69,6 @@ class _SignUpState extends State<SignUp> {
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
           padding: const EdgeInsets.only(left: 35.0, right: 35.0, top: 10.0),
           child: Stack(
             children: [
@@ -114,10 +113,11 @@ class _SignUpState extends State<SignUp> {
                           controller: moUserNameController,
                           decoration: InputDecoration(
                               errorStyle: errorSignupText(),
-                              hintText: StringCommon.msHintName,
-                              hintStyle: labelSignupText(),
+                              // hintText: StringCommon.msHintName,
+                              // hintStyle: labelSignupText(),
                               labelText: StringCommon.msLabelName),
                           keyboardType: TextInputType.text,
+                          textInputAction: TextInputAction.next,
                           validator: validateName,
                         ),
                       ),
@@ -135,6 +135,7 @@ class _SignUpState extends State<SignUp> {
                               errorStyle: TextStyle(color: Colors.black),
                               labelText: StringCommon.msLabelCompany),
                           keyboardType: TextInputType.text,
+                          textInputAction: TextInputAction.next,
                           validator: validateCompany,
                         ),
                       ),
@@ -146,12 +147,19 @@ class _SignUpState extends State<SignUp> {
                               errorStyle: TextStyle(color: Colors.black),
                               labelText: StringCommon.msLabelEmail),
                           keyboardType: TextInputType.emailAddress,
+                          textInputAction: TextInputAction.send,
                           validator: validateEmail,
+                          onEditingComplete: () => {
+                            if (moFormKey.currentState!.validate())
+                              {debugPrint("No Error")}
+                            else
+                              {debugPrint("Error")}
+                          },
                         ),
                       ),
                       Container(
                         width: double.infinity, // <-- match_parent
-                        margin: const EdgeInsets.only(top: 80),
+                        margin: const EdgeInsets.only(top: 60),
                         alignment: Alignment.center,
                         child: ElevatedButton(
                           onPressed: () => {

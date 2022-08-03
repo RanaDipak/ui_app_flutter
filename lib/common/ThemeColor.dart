@@ -6,9 +6,10 @@ class ThemeColor {
   static const  Color signupText = Color.fromRGBO(46, 57, 81,0.9);
   static const  Color submitText = Color.fromRGBO(60, 61, 113, 1);
   static const Color darkRed =  Color.fromRGBO(176, 28, 39, 1);
+  static const Color moEmailBackgroundSignIn =  Color.fromRGBO(225, 225, 227, 1);
   static Color green = const Color.fromRGBO(52,174,77, 1);
   static Color darkRed1 = const Color.fromRGBO(231, 187, 189, 1);
-  static const Color offBlack = const Color.fromRGBO(4, 7, 7, 1);
+  static const Color black = const Color.fromRGBO(4, 7, 7, 1);
   static Color doveGray = const Color.fromRGBO(102, 102, 102, 1);
   static Color blackTransparent = const Color.fromRGBO(4, 7, 7, 150);
   static Color lightGrey = const Color(0XDEDEDEDE);
